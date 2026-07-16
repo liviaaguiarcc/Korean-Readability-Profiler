@@ -1,14 +1,18 @@
 """Command-line entry point for the Korean Readability Profiler."""
 
 from src.morphological_analyzer import KoreanMorphologicalAnalyzer
+from src.vocabulary_analyzer import VocabularyAnalyzer
 
 
-def print_analysis(text: str) -> None:
-    """Analyze text and display its morphemes in the terminal."""
-    analyzer = KoreanMorphologicalAnalyzer()
-    tokens = analyzer.analyze(text)
+def print_morphological_analysis(text: str) -> None:
+    """Analyze text and display morphemes and vocabulary."""
+    morphological_analyzer = KoreanMorphologicalAnalyzer()
+    vocabulary_analyzer = VocabularyAnalyzer()
 
-    print("\nKOREAN MORPHOLOGICAL ANALYSIS")
+    tokens = morphological_analyzer.analyze(text)
+    vocabulary = vocabulary_analyzer.extract_vocabulary(tokens)
+
+    print("\nMORPHOLOGICAL ANALYSIS")
     print("-" * 55)
     print(f"{'FORM':<20} {'TAG':<10} {'POSITION':<10}")
     print("-" * 55)
@@ -18,6 +22,21 @@ def print_analysis(text: str) -> None:
 
     print("-" * 55)
     print(f"Total morphemes: {len(tokens)}")
+
+    print("\nVOCABULARY")
+    print("-" * 60)
+    print(f"{'LEMMA':<25} {'PART OF SPEECH':<20} {'FREQUENCY':<10}")
+    print("-" * 60)
+
+    for item in vocabulary:
+        print(
+            f"{item.lemma:<25} "
+            f"{item.part_of_speech:<20} "
+            f"{item.frequency:<10}"
+        )
+
+    print("-" * 60)
+    print(f"Unique vocabulary items: {len(vocabulary)}")
 
 
 def main() -> None:
@@ -32,7 +51,7 @@ def main() -> None:
         return
 
     try:
-        print_analysis(text)
+        print_morphological_analysis(text)
     except ValueError as error:
         print(f"\nError: {error}")
 
