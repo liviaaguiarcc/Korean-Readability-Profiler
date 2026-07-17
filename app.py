@@ -52,11 +52,15 @@ def print_coverage_report(
         f"{report.unique_coverage_percentage:.1f}%"
     )
     print(
-        f"TOPIK I unique words: "
+        "Evaluated unique words: "
+        f"{report.total_unique_items}"
+    )
+    print(
+        "TOPIK I unique words: "
         f"{report.topik_unique_items}"
     )
     print(
-        f"Non-TOPIK I unique words: "
+        "Non-TOPIK I unique words: "
         f"{report.non_topik_unique_items}"
     )
 
@@ -67,11 +71,15 @@ def print_coverage_report(
         f"{report.token_coverage_percentage:.1f}%"
     )
     print(
-        f"TOPIK I word occurrences: "
+        "Evaluated word occurrences: "
+        f"{report.total_tokens}"
+    )
+    print(
+        "TOPIK I word occurrences: "
         f"{report.topik_tokens}"
     )
     print(
-        f"Non-TOPIK I word occurrences: "
+        "Non-TOPIK I word occurrences: "
         f"{report.non_topik_tokens}"
     )
 
@@ -86,6 +94,17 @@ def print_coverage_report(
 
     if report.non_topik_words:
         print(", ".join(report.non_topik_words))
+    else:
+        print("None")
+
+    print("\nProper nouns ignored in coverage calculations:")
+
+    if report.proper_nouns:
+        print(", ".join(report.proper_nouns))
+        print(
+            "Ignored proper-noun occurrences: "
+            f"{report.ignored_proper_noun_tokens}"
+        )
     else:
         print("None")
 

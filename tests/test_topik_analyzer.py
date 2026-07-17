@@ -211,3 +211,113 @@ def test_handles_empty_vocabulary_report(
     assert report.total_tokens == 0
     assert report.unique_coverage_percentage == 0.0
     assert report.token_coverage_percentage == 0.0
+
+def test_ignores_proper_nouns_in_unique_coverage(
+    sample_topik_csv: Path,
+) -> None:
+    """Proper nouns should not affect unique vocabulary coverage."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("학생", "noun", 1),
+        VocabularyItem("언어학", "noun", 1),
+        VocabularyItem("민지", "proper noun", 1),
+    ]
+
+    results = analyzer.classify(vocabulary)
+    report = analyzer.create_coverage_report(results)
+
+    assert report.total_unique_items == 2
+    assert report.topik_unique_items == 1
+    assert report.non_topik_unique_items == 1
+    assert report.unique_coverage_percentage == 50.0
+
+    assert report.ignored_proper_noun_items == 1
+    assert report.proper_nouns == ("민지",)
+
+
+def test_ignores_proper_nouns_in_token_coverage(
+    sample_topik_csv: Path,
+) -> None:
+    """Repeated proper nouns should not affect token coverage."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("학생", "noun", 2),
+        VocabularyItem("언어학", "noun", 1),
+        VocabularyItem("민지", "proper noun", 5),
+    ]
+
+    results = analyzer.classify(vocabulary)
+    report = analyzer.create_coverage_report(results)
+
+    assert report.total_tokens == 3
+    assert report.topik_tokens == 2
+    assert report.non_topik_tokens == 1
+
+    assert report.token_coverage_percentage == pytest.approx(
+        66.666,
+        rel=0.01,
+    )
+
+    assert report.ignored_proper_noun_tokens == 5
+
+
+def test_reports_multiple_proper_nouns_alphabetically(
+    sample_topik_csv: Path,
+) -> None:
+    """It should report ignored proper nouns alphabetically."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("서울", "proper noun", 1),
+        VocabularyItem("민지", "proper noun", 1),
+        VocabularyItem("학생", "noun", 1),
+    ]
+
+    results = analyzer.classify(vocabulary)
+    report = analyzer.create_coverage_report(results)
+
+    assert report.proper_nouns == ("민지", "서울")
+
+
+def test_handles_report_containing_only_proper_nouns(
+    sample_topik_csv: Path,
+) -> None:
+    """It should safely handle a text containing only proper nouns."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("민지", "proper noun", 2),
+        VocabularyItem("서울", "proper noun", 1),
+    ]
+
+    results = analyzer.classify(vocabulary)
+    report = analyzer.create_coverage_report(results)
+
+    assert report.total_unique_items == 0
+    assert report.total_tokens == 0
+    assert report.unique_coverage_percentage == 0.0
+    assert report.token_coverage_percentage == 0.0
+
+    assert report.ignored_proper_noun_items == 2
+    assert report.ignored_proper_noun_tokens == 3
+
+def test_evaluates_listed_proper_nouns(
+    sample_topik_csv: Path,
+) -> None:
+    """A listed proper noun should remain in coverage calculations."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("학생", "proper noun", 1),
+        VocabularyItem("민지", "proper noun", 1),
+    ]
+
+    results = analyzer.classify(vocabulary)
+    report = analyzer.create_coverage_report(results)
+
+    assert report.total_unique_items == 1
+    assert report.topik_unique_items == 1
+    assert report.topik_words == ("학생",)
+    assert report.proper_nouns == ("민지",)

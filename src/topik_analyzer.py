@@ -26,12 +26,18 @@ class TopikCoverageReport:
     topik_unique_items: int
     non_topik_unique_items: int
     unique_coverage_percentage: float
+
     total_tokens: int
     topik_tokens: int
     non_topik_tokens: int
     token_coverage_percentage: float
+
+    ignored_proper_noun_items: int
+    ignored_proper_noun_tokens: int
+
     topik_words: tuple[str, ...]
     non_topik_words: tuple[str, ...]
+    proper_nouns: tuple[str, ...]
 
 
 class TopikVocabularyAnalyzer:
@@ -80,27 +86,44 @@ class TopikVocabularyAnalyzer:
         self,
         results: list[TopikVocabularyResult],
     ) -> TopikCoverageReport:
-        """Calculate TOPIK I coverage statistics."""
-        total_unique_items = len(results)
+        """Calculate TOPIK I coverage while ignoring proper nouns."""
+        proper_noun_results = [
+            result
+            for result in results
+            if (
+                result.part_of_speech == "proper noun"
+                and not result.is_topik_i
+            )
+        ]
+
+        evaluated_results = [
+            result
+            for result in results
+            if not (
+                result.part_of_speech == "proper noun"
+                and not result.is_topik_i
+            )
+        ]
 
         topik_results = [
             result
-            for result in results
+            for result in evaluated_results
             if result.is_topik_i
         ]
 
         non_topik_results = [
             result
-            for result in results
+            for result in evaluated_results
             if not result.is_topik_i
         ]
 
+        total_unique_items = len(evaluated_results)
         topik_unique_items = len(topik_results)
         non_topik_unique_items = len(non_topik_results)
 
         total_tokens = sum(
             result.frequency
-            for result in results
+            for result in evaluated_results
         )
 
         topik_tokens = sum(
@@ -111,6 +134,13 @@ class TopikVocabularyAnalyzer:
         non_topik_tokens = sum(
             result.frequency
             for result in non_topik_results
+        )
+
+        ignored_proper_noun_items = len(proper_noun_results)
+
+        ignored_proper_noun_tokens = sum(
+            result.frequency
+            for result in proper_noun_results
         )
 
         unique_coverage_percentage = self._calculate_percentage(
@@ -131,6 +161,10 @@ class TopikVocabularyAnalyzer:
             sorted(result.lemma for result in non_topik_results)
         )
 
+        proper_nouns = tuple(
+            sorted(result.lemma for result in proper_noun_results)
+        )
+
         return TopikCoverageReport(
             total_unique_items=total_unique_items,
             topik_unique_items=topik_unique_items,
@@ -140,8 +174,11 @@ class TopikVocabularyAnalyzer:
             topik_tokens=topik_tokens,
             non_topik_tokens=non_topik_tokens,
             token_coverage_percentage=token_coverage_percentage,
+            ignored_proper_noun_items=ignored_proper_noun_items,
+            ignored_proper_noun_tokens=ignored_proper_noun_tokens,
             topik_words=topik_words,
             non_topik_words=non_topik_words,
+            proper_nouns=proper_nouns,
         )
 
     @staticmethod
