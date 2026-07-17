@@ -1,0 +1,136 @@
+"""Tests for TOPIK vocabulary lookup."""
+
+from pathlib import Path
+
+import pandas as pd
+import pytest
+
+from src.topik_analyzer import TopikVocabularyAnalyzer
+from src.vocabulary_analyzer import VocabularyItem
+
+
+@pytest.fixture
+def sample_topik_csv(tmp_path: Path) -> Path:
+    """Create a temporary TOPIK vocabulary CSV for testing."""
+    csv_path = tmp_path / "topik_test.csv"
+
+    dataframe = pd.DataFrame(
+        {
+            "number": [1, 2, 3],
+            "korean": ["학생", "책", "읽다"],
+        }
+    )
+
+    dataframe.to_csv(
+        csv_path,
+        index=False,
+        encoding="utf-8-sig",
+    )
+
+    return csv_path
+
+
+def test_loads_topik_vocabulary(
+    sample_topik_csv: Path,
+) -> None:
+    """It should load Korean words from the CSV."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    assert "학생" in analyzer.topik_words
+    assert "책" in analyzer.topik_words
+    assert "읽다" in analyzer.topik_words
+
+
+def test_classifies_topik_i_word(
+    sample_topik_csv: Path,
+) -> None:
+    """It should classify a listed word as TOPIK I."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem(
+            lemma="학생",
+            part_of_speech="noun",
+            frequency=1,
+        )
+    ]
+
+    results = analyzer.classify(vocabulary)
+
+    assert len(results) == 1
+    assert results[0].lemma == "학생"
+    assert results[0].is_topik_i is True
+
+
+def test_classifies_unlisted_word(
+    sample_topik_csv: Path,
+) -> None:
+    """It should classify an unlisted word as not TOPIK I."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem(
+            lemma="언어학",
+            part_of_speech="noun",
+            frequency=1,
+        )
+    ]
+
+    results = analyzer.classify(vocabulary)
+
+    assert len(results) == 1
+    assert results[0].lemma == "언어학"
+    assert results[0].is_topik_i is False
+
+
+def test_preserves_frequency_and_part_of_speech(
+    sample_topik_csv: Path,
+) -> None:
+    """It should preserve vocabulary metadata."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem(
+            lemma="책",
+            part_of_speech="noun",
+            frequency=3,
+        )
+    ]
+
+    result = analyzer.classify(vocabulary)[0]
+
+    assert result.part_of_speech == "noun"
+    assert result.frequency == 3
+
+
+def test_raises_error_when_csv_does_not_exist(
+    tmp_path: Path,
+) -> None:
+    """It should raise an error for a missing CSV file."""
+    missing_path = tmp_path / "missing.csv"
+
+    with pytest.raises(FileNotFoundError):
+        TopikVocabularyAnalyzer(missing_path)
+
+
+def test_raises_error_without_korean_column(
+    tmp_path: Path,
+) -> None:
+    """It should reject CSV files without a korean column."""
+    csv_path = tmp_path / "invalid.csv"
+
+    dataframe = pd.DataFrame(
+        {
+            "number": [1],
+            "word": ["학생"],
+        }
+    )
+
+    dataframe.to_csv(
+        csv_path,
+        index=False,
+        encoding="utf-8-sig",
+    )
+
+    with pytest.raises(ValueError):
+        TopikVocabularyAnalyzer(csv_path)
