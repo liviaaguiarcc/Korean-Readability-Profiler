@@ -23,18 +23,24 @@ def print_vocabulary_table(
         f"{'LEMMA':<25}"
         f"{'PART OF SPEECH':<20}"
         f"{'FREQUENCY':<12}"
-        f"{'TOPIK I':<10}"
+        f"{'CATEGORY':<18}"
     )
     print("-" * 75)
 
     for result in topik_results:
-        topik_label = "Yes" if result.is_topik_i else "No"
+        category_labels = {
+            "topik_i": "TOPIK I",
+            "possible_proper_noun": "Proper Noun",
+            "unlisted": "Unlisted",
+        }
+
+        topik_label = category_labels.get(result.category, "Unknown")
 
         print(
             f"{result.lemma:<25}"
             f"{result.part_of_speech:<20}"
             f"{result.frequency:<12}"
-            f"{topik_label:<10}"
+            f"{topik_label:<18}"
         )
 
     print("-" * 75)
@@ -61,7 +67,7 @@ def print_coverage_report(
     )
     print(
         "Non-TOPIK I unique words: "
-        f"{report.non_topik_unique_items}"
+        f"{report.unlisted_unique_items}"
     )
 
     print()
@@ -80,7 +86,7 @@ def print_coverage_report(
     )
     print(
         "Non-TOPIK I word occurrences: "
-        f"{report.non_topik_tokens}"
+        f"{report.unlisted_tokens}"
     )
 
     print("\nTOPIK I words found:")
@@ -92,8 +98,8 @@ def print_coverage_report(
 
     print("\nWords not found in the TOPIK I list:")
 
-    if report.non_topik_words:
-        print(", ".join(report.non_topik_words))
+    if report.unlisted_tokens:
+        print(", ".join(report.unlisted_words))
     else:
         print("None")
 

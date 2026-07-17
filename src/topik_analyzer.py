@@ -15,7 +15,22 @@ class TopikVocabularyResult:
     lemma: str
     part_of_speech: str
     frequency: int
-    is_topik_i: bool
+    category: str
+
+    @property
+    def is_topik_i(self) -> bool:
+        """Return whether the item belongs to the TOPIK I list."""
+        return self.category == "topik_i"
+
+    @property
+    def is_possible_proper_noun(self) -> bool:
+        """Return whether the item is an unlisted proper noun."""
+        return self.category == "possible_proper_noun"
+
+    @property
+    def is_unlisted(self) -> bool:
+        """Return whether the item was not found in the database."""
+        return self.category == "unlisted"
 
 
 @dataclass(frozen=True)
@@ -24,19 +39,19 @@ class TopikCoverageReport:
 
     total_unique_items: int
     topik_unique_items: int
-    non_topik_unique_items: int
+    unlisted_unique_items: int
     unique_coverage_percentage: float
 
     total_tokens: int
     topik_tokens: int
-    non_topik_tokens: int
+    unlisted_tokens: int
     token_coverage_percentage: float
 
     ignored_proper_noun_items: int
     ignored_proper_noun_tokens: int
 
     topik_words: tuple[str, ...]
-    non_topik_words: tuple[str, ...]
+    unlisted_words: tuple[str, ...]
     proper_nouns: tuple[str, ...]
 
 
@@ -71,16 +86,35 @@ class TopikVocabularyAnalyzer:
         self,
         vocabulary: list[VocabularyItem],
     ) -> list[TopikVocabularyResult]:
-        """Classify vocabulary as TOPIK I or not found."""
-        return [
-            TopikVocabularyResult(
-                lemma=item.lemma,
-                part_of_speech=item.part_of_speech,
-                frequency=item.frequency,
-                is_topik_i=item.lemma in self.topik_words,
+        """Classify each vocabulary item."""
+        results: list[TopikVocabularyResult] = []
+
+        for item in vocabulary:
+            category = self._classify_item(item)
+
+            results.append(
+                TopikVocabularyResult(
+                    lemma=item.lemma,
+                    part_of_speech=item.part_of_speech,
+                    frequency=item.frequency,
+                    category=category,
+                )
             )
-            for item in vocabulary
-        ]
+
+        return results
+
+    def _classify_item(
+        self,
+        item: VocabularyItem,
+    ) -> str:
+        """Assign a transparent category to one vocabulary item."""
+        if item.lemma in self.topik_words:
+            return "topik_i"
+
+        if item.part_of_speech == "proper noun":
+            return "possible_proper_noun"
+
+        return "unlisted"
 
     def create_coverage_report(
         self,
@@ -90,19 +124,13 @@ class TopikVocabularyAnalyzer:
         proper_noun_results = [
             result
             for result in results
-            if (
-                result.part_of_speech == "proper noun"
-                and not result.is_topik_i
-            )
+            if result.is_possible_proper_noun
         ]
 
         evaluated_results = [
             result
             for result in results
-            if not (
-                result.part_of_speech == "proper noun"
-                and not result.is_topik_i
-            )
+            if not result.is_possible_proper_noun
         ]
 
         topik_results = [
@@ -111,15 +139,15 @@ class TopikVocabularyAnalyzer:
             if result.is_topik_i
         ]
 
-        non_topik_results = [
+        unlisted_results = [
             result
             for result in evaluated_results
-            if not result.is_topik_i
+            if result.is_unlisted
         ]
 
         total_unique_items = len(evaluated_results)
         topik_unique_items = len(topik_results)
-        non_topik_unique_items = len(non_topik_results)
+        unlisted_unique_items = len(unlisted_results)
 
         total_tokens = sum(
             result.frequency
@@ -131,9 +159,9 @@ class TopikVocabularyAnalyzer:
             for result in topik_results
         )
 
-        non_topik_tokens = sum(
+        unlisted_tokens = sum(
             result.frequency
-            for result in non_topik_results
+            for result in unlisted_results
         )
 
         ignored_proper_noun_items = len(proper_noun_results)
@@ -157,8 +185,8 @@ class TopikVocabularyAnalyzer:
             sorted(result.lemma for result in topik_results)
         )
 
-        non_topik_words = tuple(
-            sorted(result.lemma for result in non_topik_results)
+        unlisted_words = tuple(
+            sorted(result.lemma for result in unlisted_results)
         )
 
         proper_nouns = tuple(
@@ -168,16 +196,16 @@ class TopikVocabularyAnalyzer:
         return TopikCoverageReport(
             total_unique_items=total_unique_items,
             topik_unique_items=topik_unique_items,
-            non_topik_unique_items=non_topik_unique_items,
+            unlisted_unique_items=unlisted_unique_items,
             unique_coverage_percentage=unique_coverage_percentage,
             total_tokens=total_tokens,
             topik_tokens=topik_tokens,
-            non_topik_tokens=non_topik_tokens,
+            unlisted_tokens=unlisted_tokens,
             token_coverage_percentage=token_coverage_percentage,
             ignored_proper_noun_items=ignored_proper_noun_items,
             ignored_proper_noun_tokens=ignored_proper_noun_tokens,
             topik_words=topik_words,
-            non_topik_words=non_topik_words,
+            unlisted_words=unlisted_words,
             proper_nouns=proper_nouns,
         )
 

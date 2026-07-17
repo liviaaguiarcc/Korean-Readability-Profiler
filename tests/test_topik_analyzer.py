@@ -152,7 +152,7 @@ def test_calculates_unique_vocabulary_coverage(
 
     assert report.total_unique_items == 3
     assert report.topik_unique_items == 2
-    assert report.non_topik_unique_items == 1
+    assert report.unlisted_unique_items == 1
     assert report.unique_coverage_percentage == pytest.approx(
         66.666,
         rel=0.01,
@@ -176,11 +176,11 @@ def test_calculates_token_coverage(
 
     assert report.total_tokens == 5
     assert report.topik_tokens == 4
-    assert report.non_topik_tokens == 1
+    assert report.unlisted_tokens == 1
     assert report.token_coverage_percentage == 80.0
 
 
-def test_reports_topik_and_non_topik_words(
+def test_reports_topik_and_unlisted_words(
     sample_topik_csv: Path,
 ) -> None:
     """It should separate found and unlisted vocabulary."""
@@ -196,7 +196,7 @@ def test_reports_topik_and_non_topik_words(
     report = analyzer.create_coverage_report(results)
 
     assert report.topik_words == ("읽다", "학생")
-    assert report.non_topik_words == ("언어학",)
+    assert report.unlisted_words == ("언어학",)
 
 
 def test_handles_empty_vocabulary_report(
@@ -229,7 +229,7 @@ def test_ignores_proper_nouns_in_unique_coverage(
 
     assert report.total_unique_items == 2
     assert report.topik_unique_items == 1
-    assert report.non_topik_unique_items == 1
+    assert report.unlisted_unique_items == 1
     assert report.unique_coverage_percentage == 50.0
 
     assert report.ignored_proper_noun_items == 1
@@ -253,7 +253,7 @@ def test_ignores_proper_nouns_in_token_coverage(
 
     assert report.total_tokens == 3
     assert report.topik_tokens == 2
-    assert report.non_topik_tokens == 1
+    assert report.unlisted_tokens == 1
 
     assert report.token_coverage_percentage == pytest.approx(
         66.666,
@@ -321,3 +321,50 @@ def test_evaluates_listed_proper_nouns(
     assert report.topik_unique_items == 1
     assert report.topik_words == ("학생",)
     assert report.proper_nouns == ("민지",)
+
+def test_assigns_topik_i_category(
+    sample_topik_csv: Path,
+) -> None:
+    """A listed word should receive the TOPIK I category."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("학생", "noun", 1),
+    ]
+
+    result = analyzer.classify(vocabulary)[0]
+
+    assert result.category == "topik_i"
+    assert result.is_topik_i is True
+
+
+def test_assigns_possible_proper_noun_category(
+    sample_topik_csv: Path,
+) -> None:
+    """An unlisted proper noun should receive a cautious category."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("민지", "proper noun", 1),
+    ]
+
+    result = analyzer.classify(vocabulary)[0]
+
+    assert result.category == "possible_proper_noun"
+    assert result.is_possible_proper_noun is True
+
+
+def test_assigns_unlisted_category(
+    sample_topik_csv: Path,
+) -> None:
+    """An unlisted common word should not be called advanced."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("언어학", "noun", 1),
+    ]
+
+    result = analyzer.classify(vocabulary)[0]
+
+    assert result.category == "unlisted"
+    assert result.is_unlisted is True
