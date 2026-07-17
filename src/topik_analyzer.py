@@ -1,4 +1,4 @@
-"""TOPIK vocabulary lookup for Korean texts."""
+"""TOPIK vocabulary lookup and coverage analysis."""
 
 from dataclasses import dataclass
 from pathlib import Path
@@ -16,6 +16,22 @@ class TopikVocabularyResult:
     part_of_speech: str
     frequency: int
     is_topik_i: bool
+
+
+@dataclass(frozen=True)
+class TopikCoverageReport:
+    """Summary of TOPIK I vocabulary coverage."""
+
+    total_unique_items: int
+    topik_unique_items: int
+    non_topik_unique_items: int
+    unique_coverage_percentage: float
+    total_tokens: int
+    topik_tokens: int
+    non_topik_tokens: int
+    token_coverage_percentage: float
+    topik_words: tuple[str, ...]
+    non_topik_words: tuple[str, ...]
 
 
 class TopikVocabularyAnalyzer:
@@ -59,3 +75,82 @@ class TopikVocabularyAnalyzer:
             )
             for item in vocabulary
         ]
+
+    def create_coverage_report(
+        self,
+        results: list[TopikVocabularyResult],
+    ) -> TopikCoverageReport:
+        """Calculate TOPIK I coverage statistics."""
+        total_unique_items = len(results)
+
+        topik_results = [
+            result
+            for result in results
+            if result.is_topik_i
+        ]
+
+        non_topik_results = [
+            result
+            for result in results
+            if not result.is_topik_i
+        ]
+
+        topik_unique_items = len(topik_results)
+        non_topik_unique_items = len(non_topik_results)
+
+        total_tokens = sum(
+            result.frequency
+            for result in results
+        )
+
+        topik_tokens = sum(
+            result.frequency
+            for result in topik_results
+        )
+
+        non_topik_tokens = sum(
+            result.frequency
+            for result in non_topik_results
+        )
+
+        unique_coverage_percentage = self._calculate_percentage(
+            topik_unique_items,
+            total_unique_items,
+        )
+
+        token_coverage_percentage = self._calculate_percentage(
+            topik_tokens,
+            total_tokens,
+        )
+
+        topik_words = tuple(
+            sorted(result.lemma for result in topik_results)
+        )
+
+        non_topik_words = tuple(
+            sorted(result.lemma for result in non_topik_results)
+        )
+
+        return TopikCoverageReport(
+            total_unique_items=total_unique_items,
+            topik_unique_items=topik_unique_items,
+            non_topik_unique_items=non_topik_unique_items,
+            unique_coverage_percentage=unique_coverage_percentage,
+            total_tokens=total_tokens,
+            topik_tokens=topik_tokens,
+            non_topik_tokens=non_topik_tokens,
+            token_coverage_percentage=token_coverage_percentage,
+            topik_words=topik_words,
+            non_topik_words=non_topik_words,
+        )
+
+    @staticmethod
+    def _calculate_percentage(
+        part: int,
+        total: int,
+    ) -> float:
+        """Return a percentage without dividing by zero."""
+        if total == 0:
+            return 0.0
+
+        return part / total * 100

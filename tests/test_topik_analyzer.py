@@ -134,3 +134,80 @@ def test_raises_error_without_korean_column(
 
     with pytest.raises(ValueError):
         TopikVocabularyAnalyzer(csv_path)
+
+def test_calculates_unique_vocabulary_coverage(
+    sample_topik_csv: Path,
+) -> None:
+    """It should calculate coverage using unique vocabulary items."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("학생", "noun", 2),
+        VocabularyItem("책", "noun", 1),
+        VocabularyItem("언어학", "noun", 1),
+    ]
+
+    results = analyzer.classify(vocabulary)
+    report = analyzer.create_coverage_report(results)
+
+    assert report.total_unique_items == 3
+    assert report.topik_unique_items == 2
+    assert report.non_topik_unique_items == 1
+    assert report.unique_coverage_percentage == pytest.approx(
+        66.666,
+        rel=0.01,
+    )
+
+
+def test_calculates_token_coverage(
+    sample_topik_csv: Path,
+) -> None:
+    """It should calculate coverage using word occurrences."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("학생", "noun", 3),
+        VocabularyItem("책", "noun", 1),
+        VocabularyItem("언어학", "noun", 1),
+    ]
+
+    results = analyzer.classify(vocabulary)
+    report = analyzer.create_coverage_report(results)
+
+    assert report.total_tokens == 5
+    assert report.topik_tokens == 4
+    assert report.non_topik_tokens == 1
+    assert report.token_coverage_percentage == 80.0
+
+
+def test_reports_topik_and_non_topik_words(
+    sample_topik_csv: Path,
+) -> None:
+    """It should separate found and unlisted vocabulary."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    vocabulary = [
+        VocabularyItem("학생", "noun", 1),
+        VocabularyItem("읽다", "verb", 1),
+        VocabularyItem("언어학", "noun", 1),
+    ]
+
+    results = analyzer.classify(vocabulary)
+    report = analyzer.create_coverage_report(results)
+
+    assert report.topik_words == ("읽다", "학생")
+    assert report.non_topik_words == ("언어학",)
+
+
+def test_handles_empty_vocabulary_report(
+    sample_topik_csv: Path,
+) -> None:
+    """It should safely handle an empty vocabulary list."""
+    analyzer = TopikVocabularyAnalyzer(sample_topik_csv)
+
+    report = analyzer.create_coverage_report([])
+
+    assert report.total_unique_items == 0
+    assert report.total_tokens == 0
+    assert report.unique_coverage_percentage == 0.0
+    assert report.token_coverage_percentage == 0.0
