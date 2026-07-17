@@ -1,42 +1,65 @@
 """Command-line entry point for the Korean Readability Profiler."""
 
+from pathlib import Path
+
 from src.morphological_analyzer import KoreanMorphologicalAnalyzer
+from src.topik_analyzer import TopikVocabularyAnalyzer
 from src.vocabulary_analyzer import VocabularyAnalyzer
 
 
-def print_morphological_analysis(text: str) -> None:
-    """Analyze text and display morphemes and vocabulary."""
+TOPIK_CSV_PATH = Path("data/topik_i_number_korean.csv")
+
+
+def print_analysis(text: str) -> None:
+    """Analyze text and display vocabulary and TOPIK results."""
     morphological_analyzer = KoreanMorphologicalAnalyzer()
     vocabulary_analyzer = VocabularyAnalyzer()
+    topik_analyzer = TopikVocabularyAnalyzer(TOPIK_CSV_PATH)
 
     tokens = morphological_analyzer.analyze(text)
     vocabulary = vocabulary_analyzer.extract_vocabulary(tokens)
+    topik_results = topik_analyzer.classify(vocabulary)
 
-    print("\nMORPHOLOGICAL ANALYSIS")
-    print("-" * 55)
-    print(f"{'FORM':<20} {'TAG':<10} {'POSITION':<10}")
-    print("-" * 55)
+    print("\nVOCABULARY AND TOPIK I ANALYSIS")
+    print("-" * 75)
+    print(
+        f"{'LEMMA':<25}"
+        f"{'PART OF SPEECH':<20}"
+        f"{'FREQUENCY':<12}"
+        f"{'TOPIK I':<10}"
+    )
+    print("-" * 75)
 
-    for token in tokens:
-        print(f"{token.form:<20} {token.tag:<10} {token.start:<10}")
+    for result in topik_results:
+        topik_label = "Yes" if result.is_topik_i else "No"
 
-    print("-" * 55)
-    print(f"Total morphemes: {len(tokens)}")
-
-    print("\nVOCABULARY")
-    print("-" * 60)
-    print(f"{'LEMMA':<25} {'PART OF SPEECH':<20} {'FREQUENCY':<10}")
-    print("-" * 60)
-
-    for item in vocabulary:
         print(
-            f"{item.lemma:<25} "
-            f"{item.part_of_speech:<20} "
-            f"{item.frequency:<10}"
+            f"{result.lemma:<25}"
+            f"{result.part_of_speech:<20}"
+            f"{result.frequency:<12}"
+            f"{topik_label:<10}"
         )
 
-    print("-" * 60)
-    print(f"Unique vocabulary items: {len(vocabulary)}")
+    print("-" * 75)
+
+    total_frequency = sum(
+        result.frequency
+        for result in topik_results
+    )
+
+    topik_frequency = sum(
+        result.frequency
+        for result in topik_results
+        if result.is_topik_i
+    )
+
+    if total_frequency == 0:
+        coverage = 0.0
+    else:
+        coverage = topik_frequency / total_frequency * 100
+
+    print(f"Unique vocabulary items: {len(topik_results)}")
+    print(f"TOPIK I token coverage: {coverage:.1f}%")
 
 
 def main() -> None:
@@ -51,8 +74,8 @@ def main() -> None:
         return
 
     try:
-        print_morphological_analysis(text)
-    except ValueError as error:
+        print_analysis(text)
+    except (ValueError, FileNotFoundError) as error:
         print(f"\nError: {error}")
 
 
