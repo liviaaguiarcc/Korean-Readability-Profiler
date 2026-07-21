@@ -465,3 +465,5 @@ PC방,1A,2,10,vocabulary_book,12,PC방,confirmed_base_footer,,
 경기장,1A,10,44,extra_activities,46,경기장,,confirmed_extra_footer,explicitly marked 새 어휘
 운동장,1A,10,44,extra_activities,46,운동장,,confirmed_extra_footer,explicitly marked 새 어휘
 끝나다,1A,10,45,extra_activities,47,끝나다,,confirmed_extra_footer,explicitly marked 새 어휘
+가다,1A,3,11,vocabulary_book,13,가다,confirmed_in_example,,Core verb used in the official Unit 3 example
+인사하다,1A,1,40,base_textbook,44,인사하다,confirmed_base_activity,,Core verb used in the Unit 1 greeting activity

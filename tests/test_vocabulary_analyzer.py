@@ -65,3 +65,22 @@ def test_counts_repeated_vocabulary() -> None:
 
     assert vocabulary["학생"] == 2
     assert vocabulary["공부하다"] == 2
+
+def test_combines_honorific_nim_suffix() -> None:
+    """It should preserve nouns containing the honorific 님 suffix."""
+    vocabulary = analyze_vocabulary(
+        "선생님이 학교에 있습니다."
+    )
+
+    assert "선생님" in vocabulary
+    assert "선생" not in vocabulary
+
+
+def test_normalizes_gyeseyo_to_gyesida() -> None:
+    """It should normalize 계세요 to the dictionary form 계시다."""
+    vocabulary = analyze_vocabulary(
+        "선생님, 안녕히 계세요."
+    )
+
+    assert "계시다" in vocabulary
+    assert "계" not in vocabulary
