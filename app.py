@@ -142,7 +142,8 @@ def print_sejong_coverage_report(
     report: SejongCoverageReport,
 ) -> None:
     """Display Sejong 1A vocabulary coverage statistics."""
-    print("\nSEJONG 1A COVERAGE REPORT")
+    print("\nSEJONG VOCABULARY COVERAGE REPORT")
+    print("Current database: Sejong 1A through 1B")
     print("-" * 55)
 
     print(
@@ -154,7 +155,7 @@ def print_sejong_coverage_report(
         f"{report.total_unique_items}"
     )
     print(
-        "Words found in Sejong 1A: "
+        "Words found in the current Sejong database: "
         f"{report.listed_unique_items}"
     )
     print(
@@ -173,7 +174,7 @@ def print_sejong_coverage_report(
         f"{report.total_tokens}"
     )
     print(
-        "Sejong 1A word occurrences: "
+        "Sejong-listed word occurrences: "
         f"{report.listed_tokens}"
     )
     print(
@@ -181,7 +182,7 @@ def print_sejong_coverage_report(
         f"{report.unlisted_tokens}"
     )
 
-    print("\nWords found in Sejong 1A:")
+    print("\nWords found in the current Sejong database:")
 
     if report.listed_words:
         print(", ".join(report.listed_words))
