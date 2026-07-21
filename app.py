@@ -18,7 +18,7 @@ from src.vocabulary_aliases import VocabularyAliasResolver
 
 
 TOPIK_CSV_PATH = Path("data/topik_i_number_korean.csv")
-SEJONG_CSV_PATH = Path("data/sejong_1a_vocabulary.csv")
+SEJONG_CSV_PATH = Path("data/sejong_vocabulary.csv")
 ALIASES_CSV_PATH = Path("data/vocabulary_aliases.csv")
 
 
