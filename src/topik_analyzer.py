@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from src.vocabulary_aliases import VocabularyAliasResolver
 from src.vocabulary_analyzer import VocabularyItem
 
 
@@ -58,8 +59,13 @@ class TopikCoverageReport:
 class TopikVocabularyAnalyzer:
     """Compare extracted vocabulary against a TOPIK I word list."""
 
-    def __init__(self, csv_path: str | Path) -> None:
+    def __init__(
+        self,
+        csv_path: str | Path,
+        alias_resolver: VocabularyAliasResolver | None = None,
+    ) -> None:
         self.csv_path = Path(csv_path)
+        self.alias_resolver = alias_resolver
         self.topik_words = self._load_topik_words()
 
     def _load_topik_words(self) -> set[str]:
@@ -108,13 +114,28 @@ class TopikVocabularyAnalyzer:
         item: VocabularyItem,
     ) -> str:
         """Assign a transparent category to one vocabulary item."""
-        if item.lemma in self.topik_words:
+        candidates = self._get_lookup_candidates(item.lemma)
+
+        if any(
+            candidate in self.topik_words
+            for candidate in candidates
+        ):
             return "topik_i"
 
         if item.part_of_speech == "proper noun":
             return "possible_proper_noun"
 
         return "unlisted"
+
+    def _get_lookup_candidates(
+        self,
+        lemma: str,
+    ) -> tuple[str, ...]:
+        """Return forms that may represent the normalized lemma."""
+        if self.alias_resolver is None:
+            return (lemma,)
+
+        return self.alias_resolver.candidates(lemma)
 
     def create_coverage_report(
         self,

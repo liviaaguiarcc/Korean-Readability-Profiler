@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 
 from src.vocabulary_analyzer import VocabularyItem
+from src.vocabulary_aliases import VocabularyAliasResolver
 
 
 @dataclass(frozen=True)
@@ -65,8 +66,13 @@ class SejongVocabularyAnalyzer:
         "page",
     }
 
-    def __init__(self, csv_path: str | Path) -> None:
+    def __init__(
+        self,
+        csv_path: str | Path,
+        alias_resolver: VocabularyAliasResolver | None = None,
+    ) -> None:
         self.csv_path = Path(csv_path)
+        self.alias_resolver = alias_resolver
         self.entries = self._load_entries()
 
     def _load_entries(
@@ -129,6 +135,23 @@ class SejongVocabularyAnalyzer:
 
         return entries
 
+    def _find_entry(
+        self,
+        lemma: str,
+    ) -> tuple[str, int | None, int | None] | None:
+        """Find a Sejong entry using a le  mma or known variant."""
+        if self.alias_resolver is None:
+          candidates = (lemma,)
+        else:
+            candidates = self.alias_resolver.candidates(lemma)
+        for candidate in candidates:
+         entry = self.entries.get(candidate)
+
+        if entry is not None:
+            return entry
+
+        return None
+
     def classify(
         self,
         vocabulary: list[VocabularyItem],
@@ -137,7 +160,7 @@ class SejongVocabularyAnalyzer:
         results: list[SejongVocabularyResult] = []
 
         for item in vocabulary:
-            entry = self.entries.get(item.lemma)
+            entry = self._find_entry(item.lemma)
 
             if entry is None:
                 sejong_level = None

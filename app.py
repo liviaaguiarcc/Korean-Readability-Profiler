@@ -14,10 +14,12 @@ from src.topik_analyzer import (
     TopikVocabularyResult,
 )
 from src.vocabulary_analyzer import VocabularyAnalyzer
+from src.vocabulary_aliases import VocabularyAliasResolver
 
 
 TOPIK_CSV_PATH = Path("data/topik_i_number_korean.csv")
 SEJONG_CSV_PATH = Path("data/sejong_1a_vocabulary.csv")
+ALIASES_CSV_PATH = Path("data/vocabulary_aliases.csv")
 
 
 def print_vocabulary_table(
@@ -205,14 +207,19 @@ def print_analysis(text: str) -> None:
     """Analyze text using the TOPIK and Sejong databases."""
     morphological_analyzer = KoreanMorphologicalAnalyzer()
     vocabulary_analyzer = VocabularyAnalyzer()
+    alias_resolver = VocabularyAliasResolver(
+    ALIASES_CSV_PATH
+)
 
     topik_analyzer = TopikVocabularyAnalyzer(
-        TOPIK_CSV_PATH
-    )
+    TOPIK_CSV_PATH,
+    alias_resolver=alias_resolver,
+)
 
     sejong_analyzer = SejongVocabularyAnalyzer(
-        SEJONG_CSV_PATH
-    )
+    SEJONG_CSV_PATH,
+    alias_resolver=alias_resolver,
+)
 
     tokens = morphological_analyzer.analyze(text)
     vocabulary = vocabulary_analyzer.extract_vocabulary(tokens)
