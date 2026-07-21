@@ -183,3 +183,134 @@ def test_raises_error_for_missing_columns(
 
     with pytest.raises(ValueError):
         SejongVocabularyAnalyzer(csv_path)
+
+@pytest.fixture
+def sample_multilevel_sejong_csv(
+    tmp_path: Path,
+) -> Path:
+    """Create a database containing Sejong 1A and 1B."""
+    csv_path = tmp_path / "sejong_multilevel.csv"
+
+    dataframe = pd.DataFrame(
+        {
+            "korean": [
+                "학생",
+                "책",
+                "취미",
+                "독서",
+            ],
+            "sejong_level": [
+                "1A",
+                "1A",
+                "1B",
+                "1B",
+            ],
+            "unit": [
+                1,
+                3,
+                2,
+                2,
+            ],
+            "page": [
+                7,
+                11,
+                8,
+                8,
+            ],
+        }
+    )
+
+    dataframe.to_csv(
+        csv_path,
+        index=False,
+        encoding="utf-8-sig",
+    )
+
+    return csv_path
+
+
+def test_detects_available_sejong_levels(
+    sample_multilevel_sejong_csv: Path,
+) -> None:
+    """It should detect levels represented in the database."""
+    analyzer = SejongVocabularyAnalyzer(
+        sample_multilevel_sejong_csv
+    )
+
+    assert analyzer.available_levels == (
+        "1A",
+        "1B",
+    )
+
+
+def test_calculates_cumulative_unique_coverage(
+    sample_multilevel_sejong_csv: Path,
+) -> None:
+    """Coverage through 1B should include 1A and 1B vocabulary."""
+    analyzer = SejongVocabularyAnalyzer(
+        sample_multilevel_sejong_csv
+    )
+
+    vocabulary = [
+        VocabularyItem("학생", "noun", 2),
+        VocabularyItem("취미", "noun", 1),
+        VocabularyItem("언어학", "noun", 1),
+    ]
+
+    results = analyzer.classify(vocabulary)
+
+    reports = analyzer.create_cumulative_level_reports(
+        results
+    )
+
+    level_1a = reports[0]
+    level_1b = reports[1]
+
+    assert level_1a.sejong_level == "1A"
+    assert level_1a.covered_unique_items == 1
+
+    assert level_1a.unique_coverage_percentage == pytest.approx(
+        33.333,
+        rel=0.01,
+    )
+
+    assert level_1b.sejong_level == "1B"
+    assert level_1b.covered_unique_items == 2
+
+    assert level_1b.unique_coverage_percentage == pytest.approx(
+        66.666,
+        rel=0.01,
+    )
+
+
+def test_calculates_cumulative_token_coverage(
+    sample_multilevel_sejong_csv: Path,
+) -> None:
+    """Token coverage should include earlier-level occurrences."""
+    analyzer = SejongVocabularyAnalyzer(
+        sample_multilevel_sejong_csv
+    )
+
+    vocabulary = [
+        VocabularyItem("학생", "noun", 2),
+        VocabularyItem("취미", "noun", 1),
+        VocabularyItem("언어학", "noun", 1),
+        VocabularyItem("민지", "proper noun", 5),
+    ]
+
+    results = analyzer.classify(vocabulary)
+
+    reports = analyzer.create_cumulative_level_reports(
+        results
+    )
+
+    level_1a = reports[0]
+    level_1b = reports[1]
+
+    assert level_1a.total_tokens == 4
+    assert level_1a.covered_tokens == 2
+    assert level_1a.token_coverage_percentage == 50.0
+
+    assert level_1b.total_tokens == 4
+    assert level_1b.covered_tokens == 3
+    assert level_1b.token_coverage_percentage == 75.0

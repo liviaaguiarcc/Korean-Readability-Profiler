@@ -5,8 +5,24 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.vocabulary_analyzer import VocabularyItem
 from src.vocabulary_aliases import VocabularyAliasResolver
+from src.vocabulary_analyzer import VocabularyItem
+
+
+LEVEL_ORDER = {
+    "1A": 1,
+    "1B": 2,
+    "2A": 3,
+    "2B": 4,
+    "3A": 5,
+    "3B": 6,
+    "4A": 7,
+    "4B": 8,
+    "5A": 9,
+    "5B": 10,
+    "6A": 11,
+    "6B": 12,
+}
 
 
 @dataclass(frozen=True)
@@ -36,7 +52,7 @@ class SejongVocabularyResult:
 
 @dataclass(frozen=True)
 class SejongCoverageReport:
-    """Summary of Sejong vocabulary coverage."""
+    """Summary of total Sejong vocabulary coverage."""
 
     total_unique_items: int
     listed_unique_items: int
@@ -54,6 +70,21 @@ class SejongCoverageReport:
     listed_words: tuple[str, ...]
     unlisted_words: tuple[str, ...]
     proper_nouns: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class SejongLevelCoverage:
+    """Cumulative vocabulary coverage through one Sejong level."""
+
+    sejong_level: str
+
+    total_unique_items: int
+    covered_unique_items: int
+    unique_coverage_percentage: float
+
+    total_tokens: int
+    covered_tokens: int
+    token_coverage_percentage: float
 
 
 class SejongVocabularyAnalyzer:
@@ -74,6 +105,7 @@ class SejongVocabularyAnalyzer:
         self.csv_path = Path(csv_path)
         self.alias_resolver = alias_resolver
         self.entries = self._load_entries()
+        self.available_levels = self._get_available_levels()
 
     def _load_entries(
         self,
@@ -108,10 +140,16 @@ class SejongVocabularyAnalyzer:
                 continue
 
             korean = str(row.korean).strip()
-            sejong_level = str(row.sejong_level).strip()
+            sejong_level = str(row.sejong_level).strip().upper()
 
             if not korean or not sejong_level:
                 continue
+
+            if sejong_level not in LEVEL_ORDER:
+                raise ValueError(
+                    "Unknown Sejong level in database: "
+                    f"{sejong_level}"
+                )
 
             unit = (
                 int(row.unit)
@@ -125,7 +163,6 @@ class SejongVocabularyAnalyzer:
                 else None
             )
 
-            # Keep the first occurrence if a duplicate exists.
             if korean not in entries:
                 entries[korean] = (
                     sejong_level,
@@ -135,20 +172,35 @@ class SejongVocabularyAnalyzer:
 
         return entries
 
+    def _get_available_levels(self) -> tuple[str, ...]:
+        """Return levels currently represented in the database."""
+        levels = {
+            entry[0]
+            for entry in self.entries.values()
+        }
+
+        return tuple(
+            sorted(
+                levels,
+                key=lambda level: LEVEL_ORDER[level],
+            )
+        )
+
     def _find_entry(
         self,
         lemma: str,
     ) -> tuple[str, int | None, int | None] | None:
-        """Find a Sejong entry using a le  mma or known variant."""
+        """Find a Sejong entry using a lemma or known variant."""
         if self.alias_resolver is None:
-          candidates = (lemma,)
+            candidates = (lemma,)
         else:
             candidates = self.alias_resolver.candidates(lemma)
-        for candidate in candidates:
-         entry = self.entries.get(candidate)
 
-        if entry is not None:
-            return entry
+        for candidate in candidates:
+            entry = self.entries.get(candidate)
+
+            if entry is not None:
+                return entry
 
         return None
 
@@ -186,7 +238,7 @@ class SejongVocabularyAnalyzer:
         self,
         results: list[SejongVocabularyResult],
     ) -> SejongCoverageReport:
-        """Calculate Sejong coverage while ignoring proper nouns."""
+        """Calculate total Sejong database coverage."""
         proper_noun_results = [
             result
             for result in results
@@ -274,6 +326,71 @@ class SejongVocabularyAnalyzer:
             unlisted_words=unlisted_words,
             proper_nouns=proper_nouns,
         )
+
+    def create_cumulative_level_reports(
+        self,
+        results: list[SejongVocabularyResult],
+    ) -> tuple[SejongLevelCoverage, ...]:
+        """Calculate accumulated coverage through every available level."""
+        evaluated_results = [
+            result
+            for result in results
+            if not result.is_possible_proper_noun
+        ]
+
+        total_unique_items = len(evaluated_results)
+
+        total_tokens = sum(
+            result.frequency
+            for result in evaluated_results
+        )
+
+        reports: list[SejongLevelCoverage] = []
+
+        for target_level in self.available_levels:
+            target_order = LEVEL_ORDER[target_level]
+
+            covered_results = [
+                result
+                for result in evaluated_results
+                if (
+                    result.is_listed
+                    and result.sejong_level is not None
+                    and LEVEL_ORDER[result.sejong_level]
+                    <= target_order
+                )
+            ]
+
+            covered_unique_items = len(covered_results)
+
+            covered_tokens = sum(
+                result.frequency
+                for result in covered_results
+            )
+
+            reports.append(
+                SejongLevelCoverage(
+                    sejong_level=target_level,
+                    total_unique_items=total_unique_items,
+                    covered_unique_items=covered_unique_items,
+                    unique_coverage_percentage=(
+                        self._calculate_percentage(
+                            covered_unique_items,
+                            total_unique_items,
+                        )
+                    ),
+                    total_tokens=total_tokens,
+                    covered_tokens=covered_tokens,
+                    token_coverage_percentage=(
+                        self._calculate_percentage(
+                            covered_tokens,
+                            total_tokens,
+                        )
+                    ),
+                )
+            )
+
+        return tuple(reports)
 
     @staticmethod
     def _calculate_percentage(

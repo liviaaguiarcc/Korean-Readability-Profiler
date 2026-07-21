@@ -5,6 +5,7 @@ from pathlib import Path
 from src.morphological_analyzer import KoreanMorphologicalAnalyzer
 from src.sejong_analyzer import (
     SejongCoverageReport,
+    SejongLevelCoverage,
     SejongVocabularyAnalyzer,
     SejongVocabularyResult,
 )
@@ -203,6 +204,41 @@ def print_sejong_coverage_report(
     else:
         print("None")
 
+def print_sejong_level_coverage_reports(
+    reports: tuple[SejongLevelCoverage, ...],
+) -> None:
+    """Display cumulative coverage through each Sejong level."""
+    print("\nCUMULATIVE SEJONG COVERAGE")
+    print("-" * 70)
+
+    print(
+        f"{'THROUGH LEVEL':<18}"
+        f"{'UNIQUE COVERAGE':<20}"
+        f"{'TOKEN COVERAGE':<20}"
+    )
+
+    print("-" * 70)
+
+    for report in reports:
+        unique_summary = (
+            f"{report.covered_unique_items}/"
+            f"{report.total_unique_items} "
+            f"({report.unique_coverage_percentage:.1f}%)"
+        )
+
+        token_summary = (
+            f"{report.covered_tokens}/"
+            f"{report.total_tokens} "
+            f"({report.token_coverage_percentage:.1f}%)"
+        )
+
+        print(
+            f"{report.sejong_level:<18}"
+            f"{unique_summary:<20}"
+            f"{token_summary:<20}"
+        )
+
+    print("-" * 70)
 
 def print_analysis(text: str) -> None:
     """Analyze text using the TOPIK and Sejong databases."""
@@ -236,6 +272,12 @@ def print_analysis(text: str) -> None:
         sejong_results
     )
 
+    sejong_level_reports = (
+    sejong_analyzer.create_cumulative_level_reports(
+        sejong_results
+    )
+)
+
     print_vocabulary_table(
         topik_results,
         sejong_results,
@@ -243,6 +285,10 @@ def print_analysis(text: str) -> None:
 
     print_topik_coverage_report(topik_report)
     print_sejong_coverage_report(sejong_report)
+
+    print_sejong_level_coverage_reports(
+    sejong_level_reports
+)
 
 def read_text_file(file_path: str) -> str:
     """Read Korean text from a UTF-8 text file."""
