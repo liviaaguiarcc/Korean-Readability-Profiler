@@ -1,0 +1,467 @@
+﻿korean,sejong_level,unit,page,source,source_pdf_page,source_term,base_validation,extra_validation,notes
+나라,1A,1,6,vocabulary_book,8,나라,confirmed_base_footer,,
+직업,1A,1,6,vocabulary_book,8,직업,confirmed_base_footer,,
+한국,1A,1,6,vocabulary_book,8,한국,confirmed_base_ocr_exact,,
+사람,1A,1,6,vocabulary_book,8,사람,confirmed_base_ocr_exact,,
+캐나다,1A,1,6,vocabulary_book,8,캐나다,confirmed_base_ocr_exact,,
+베트남,1A,1,6,vocabulary_book,8,베트남,confirmed_base_ocr_exact,,
+미국,1A,1,6,vocabulary_book,8,미국,confirmed_base_ocr_exact,,
+프랑스,1A,1,6,vocabulary_book,8,프랑스,confirmed_base_ocr_exact,,
+태국,1A,1,6,vocabulary_book,8,태국,confirmed_base_ocr_exact,,
+인도네시아,1A,1,6,vocabulary_book,8,인도네시아,confirmed_base_ocr_exact,,
+중국,1A,1,6,vocabulary_book,8,중국,confirmed_base_ocr_exact,,
+일본,1A,1,6,vocabulary_book,8,일본,confirmed_base_ocr_exact,,
+러시아,1A,1,6,vocabulary_book,8,러시아,confirmed_base_ocr_exact,,
+케냐,1A,1,6,vocabulary_book,8,케냐,confirmed_base_ocr_exact,,
+회사원,1A,1,6,vocabulary_book,8,회사원,confirmed_base_ocr_exact,,
+대학생,1A,1,6,vocabulary_book,8,대학생,confirmed_base_ocr_exact,,
+의사,1A,1,6,vocabulary_book,8,의사,confirmed_base_ocr_exact,,
+경찰,1A,1,6,vocabulary_book,8,경찰,confirmed_base_ocr_exact,,
+선생님,1A,1,6,vocabulary_book,8,선생님,confirmed_base_ocr_exact,,
+가수,1A,1,6,vocabulary_book,8,가수,confirmed_base_ocr_exact,,
+요리사,1A,1,6,vocabulary_book,8,요리사,confirmed_base_ocr_exact,,
+네,1A,1,7,vocabulary_book,9,네,confirmed_base_footer,,
+아니요,1A,1,7,vocabulary_book,9,아니요,confirmed_base_footer,,
+나,1A,1,7,vocabulary_book,9,나,confirmed_base_footer,,
+모자,1A,1,7,vocabulary_book,9,모자,confirmed_base_footer,,
+책,1A,1,7,vocabulary_book,9,책,confirmed_base_footer,,
+공책,1A,1,7,vocabulary_book,9,공책,confirmed_base_footer,,
+한복,1A,1,7,vocabulary_book,9,한복,confirmed_base_footer,,
+커피,1A,1,7,vocabulary_book,9,커피,confirmed_base_footer,,
+언니,1A,1,7,vocabulary_book,9,언니,confirmed_base_footer,,
+동생,1A,1,7,vocabulary_book,9,동생,confirmed_base_footer,,
+누구,1A,1,7,vocabulary_book,9,누구,confirmed_base_footer,,
+친구,1A,1,7,vocabulary_book,9,친구,confirmed_base_footer,,
+씨,1A,1,7,vocabulary_book,9,씨,confirmed_base_footer,,
+제,1A,1,7,vocabulary_book,9,제,confirmed_base_footer,,
+아버지,1A,1,7,vocabulary_book,9,아버지,confirmed_base_footer,,
+어머니,1A,1,7,vocabulary_book,9,어머니,confirmed_base_footer,,
+이름,1A,1,7,vocabulary_book,9,이름,confirmed_base_footer,,
+학생,1A,1,7,vocabulary_book,9,학생,confirmed_base_footer,,
+자기소개,1A,1,7,vocabulary_book,9,자기소개,confirmed_base_footer,,
+한자어,1A,2,8,vocabulary_book,10,한자어,confirmed_base_footer,,
+수,1A,2,8,vocabulary_book,10,수,confirmed_base_footer,,
+영,1A,2,8,vocabulary_book,10,영/공,confirmed_base_ocr_exact,,
+공,1A,2,8,vocabulary_book,10,영/공,confirmed_base_ocr_exact,,
+일,1A,2,8,vocabulary_book,10,일,confirmed_base_ocr_exact,,
+이,1A,2,8,vocabulary_book,10,이,confirmed_base_ocr_exact,,
+삼,1A,2,8,vocabulary_book,10,삼,confirmed_base_ocr_exact,,
+사,1A,2,8,vocabulary_book,10,사,confirmed_base_ocr_exact,,
+오,1A,2,8,vocabulary_book,10,오,confirmed_base_ocr_exact,,
+육,1A,2,8,vocabulary_book,10,육,confirmed_base_footer,,
+칠,1A,2,8,vocabulary_book,10,칠,confirmed_base_visual,,main textbook PDF p.49
+팔,1A,2,8,vocabulary_book,10,팔,confirmed_base_ocr_exact,,
+구,1A,2,8,vocabulary_book,10,구,confirmed_base_ocr_exact,,
+십,1A,2,8,vocabulary_book,10,십,confirmed_base_ocr_exact,,
+십일,1A,2,8,vocabulary_book,10,십일,confirmed_base_ocr_exact,,
+십이,1A,2,8,vocabulary_book,10,십이,confirmed_base_visual,,main textbook PDF p.49
+십삼,1A,2,8,vocabulary_book,10,십삼,confirmed_base_ocr_exact,,
+십사,1A,2,8,vocabulary_book,10,십사,confirmed_base_ocr_exact,,
+십오,1A,2,8,vocabulary_book,10,십오,confirmed_base_ocr_exact,,
+십육,1A,2,8,vocabulary_book,10,십육,confirmed_base_ocr_exact,,
+십칠,1A,2,8,vocabulary_book,10,십칠,confirmed_base_visual,,main textbook PDF p.49
+십팔,1A,2,8,vocabulary_book,10,십팔,confirmed_base_ocr_exact,,
+십구,1A,2,9,vocabulary_book,11,십구,confirmed_base_visual,,main textbook PDF p.49
+이십,1A,2,9,vocabulary_book,11,이십,confirmed_base_ocr_exact,,
+삼십,1A,2,9,vocabulary_book,11,삼십,confirmed_base_ocr_exact,,
+사십,1A,2,9,vocabulary_book,11,사십,confirmed_base_ocr_exact,,
+오십,1A,2,9,vocabulary_book,11,오십,confirmed_base_ocr_exact,,
+육십,1A,2,9,vocabulary_book,11,육십,confirmed_base_ocr_exact,,
+칠십,1A,2,9,vocabulary_book,11,칠십,confirmed_base_visual,,main textbook PDF p.49
+팔십,1A,2,9,vocabulary_book,11,팔십,confirmed_base_ocr_exact,,
+구십,1A,2,9,vocabulary_book,11,구십,confirmed_base_visual,,main textbook PDF p.49
+백,1A,2,9,vocabulary_book,11,백,confirmed_base_ocr_exact,,
+층,1A,2,9,vocabulary_book,11,층,confirmed_base_footer,,
+월,1A,2,9,vocabulary_book,11,월,confirmed_base_footer,,
+쪽,1A,2,9,vocabulary_book,11,쪽,confirmed_base_footer,,
+번,1A,2,9,vocabulary_book,11,번,confirmed_base_footer,,
+호,1A,2,9,vocabulary_book,11,호,confirmed_base_footer,,
+원,1A,2,9,vocabulary_book,11,원,confirmed_base_ocr_exact,,
+몇,1A,2,9,vocabulary_book,11,몇,confirmed_base_footer,,
+얼마,1A,2,9,vocabulary_book,11,얼마,confirmed_base_footer,,
+전화번호,1A,2,9,vocabulary_book,11,전화번호,confirmed_base_footer,,
+카페,1A,2,9,vocabulary_book,11,카페,confirmed_base_footer,,
+식당,1A,2,9,vocabulary_book,11,식당,confirmed_base_footer,,
+영화관,1A,2,9,vocabulary_book,11,영화관,confirmed_base_footer,,
+노래방,1A,2,9,vocabulary_book,11,노래방,confirmed_base_footer,,
+PC방,1A,2,10,vocabulary_book,12,PC방,confirmed_base_footer,,
+지하,1A,2,10,vocabulary_book,12,지하,confirmed_base_footer,,
+형,1A,2,10,vocabulary_book,12,형,confirmed_base_footer,,
+교실,1A,2,10,vocabulary_book,12,교실,confirmed_base_footer,,
+물,1A,2,10,vocabulary_book,12,물,confirmed_base_footer,,
+주스,1A,2,10,vocabulary_book,12,주스,confirmed_base_footer,,
+컴퓨터,1A,2,10,vocabulary_book,12,컴퓨터,confirmed_base_footer,,
+텔레비전,1A,2,10,vocabulary_book,12,텔레비전,confirmed_base_footer,,
+남자,1A,2,10,vocabulary_book,12,남자,confirmed_base_footer,,
+의자,1A,2,10,vocabulary_book,12,의자,confirmed_base_footer,,
+맞다,1A,2,10,vocabulary_book,12,맞다,confirmed_base_footer,,
+두,1A,2,10,vocabulary_book,12,두,confirmed_base_footer,,
+무슨,1A,2,10,vocabulary_book,12,무슨,confirmed_base_footer,,
+세종학당,1A,2,10,vocabulary_book,12,세종학당,confirmed_base_footer,,
+이메일,1A,2,10,vocabulary_book,12,이메일,confirmed_base_footer,,
+주소,1A,2,10,vocabulary_book,12,주소,confirmed_base_footer,,
+물건,1A,3,11,vocabulary_book,13,물건,confirmed_base_footer,,
+책상,1A,3,11,vocabulary_book,13,책상,confirmed_base_ocr_exact,,
+가방,1A,3,11,vocabulary_book,13,가방,confirmed_base_ocr_exact,,
+필통,1A,3,11,vocabulary_book,13,필통,confirmed_base_ocr_exact,,
+시계,1A,3,11,vocabulary_book,13,시계,confirmed_base_ocr_exact,,
+앞,1A,3,11,vocabulary_book,13,앞,confirmed_base_ocr_exact,,
+뒤,1A,3,11,vocabulary_book,13,뒤,confirmed_base_visual,,main textbook PDF p.57
+위,1A,3,11,vocabulary_book,13,위,confirmed_base_ocr_exact,,
+아래,1A,3,11,vocabulary_book,13,아래/밑,confirmed_base_ocr_exact,,
+밑,1A,3,11,vocabulary_book,13,아래/밑,confirmed_base_visual,,main textbook PDF p.57
+옆,1A,3,11,vocabulary_book,13,옆,confirmed_base_ocr_exact,,
+오른쪽,1A,3,11,vocabulary_book,13,오른쪽,confirmed_base_visual,,main textbook PDF p.57
+왼쪽,1A,3,11,vocabulary_book,13,왼쪽,confirmed_base_ocr_exact,,
+사이,1A,3,11,vocabulary_book,13,사이,confirmed_base_ocr_exact,,
+집,1A,3,11,vocabulary_book,13,집,confirmed_base_ocr_exact,,
+안,1A,3,11,vocabulary_book,13,안,confirmed_base_ocr_exact,,
+밖,1A,3,11,vocabulary_book,13,밖,confirmed_base_visual,,main textbook PDF p.57
+어디,1A,3,11,vocabulary_book,13,어디,confirmed_base_footer,,
+핸드폰,1A,3,11,vocabulary_book,13,핸드폰,confirmed_base_footer,,
+학교,1A,3,11,vocabulary_book,13,학교,confirmed_base_footer,,
+칠판,1A,3,11,vocabulary_book,13,칠판,confirmed_base_footer,,
+피아노,1A,3,11,vocabulary_book,13,피아노,confirmed_base_footer,,
+그럼,1A,3,12,vocabulary_book,14,그럼,confirmed_base_footer,,
+펜,1A,3,12,vocabulary_book,14,펜,confirmed_base_footer,,
+우산,1A,3,12,vocabulary_book,14,우산,confirmed_base_footer,,
+방,1A,3,12,vocabulary_book,14,방,confirmed_base_footer,,
+무엇,1A,3,12,vocabulary_book,14,무엇,confirmed_base_footer,,
+침대,1A,3,12,vocabulary_book,14,침대,confirmed_base_footer,,
+먹다,1A,4,13,vocabulary_book,15,먹다,confirmed_base_visual,,main textbook PDF p.65
+읽다,1A,4,13,vocabulary_book,15,읽다,confirmed_base_ocr_exact,,
+보다,1A,4,13,vocabulary_book,15,보다,confirmed_base_visual,,main textbook PDF p.65
+마시다,1A,4,13,vocabulary_book,15,마시다,confirmed_base_visual,,main textbook PDF p.65
+듣다,1A,4,13,vocabulary_book,15,듣다,confirmed_base_visual,,main textbook PDF p.65
+만나다,1A,4,13,vocabulary_book,15,만나다,confirmed_base_ocr_stem,,
+자다,1A,4,13,vocabulary_book,15,자다,confirmed_base_visual,,main textbook PDF p.65
+일하다,1A,4,13,vocabulary_book,15,일하다,confirmed_base_ocr_exact,,
+요리하다,1A,4,13,vocabulary_book,15,요리하다,confirmed_base_ocr_stem,,
+공부하다,1A,4,13,vocabulary_book,15,공부하다,confirmed_base_ocr_stem,,
+영화,1A,4,13,vocabulary_book,15,영화,confirmed_base_footer,,
+한국어,1A,4,13,vocabulary_book,15,한국어,confirmed_base_footer,,
+오늘,1A,4,13,vocabulary_book,15,오늘,confirmed_base_footer,,
+불고기,1A,4,13,vocabulary_book,15,불고기,confirmed_base_footer,,
+정말,1A,4,13,vocabulary_book,15,정말,confirmed_base_footer,,
+맛있다,1A,4,13,vocabulary_book,15,맛있다,confirmed_base_footer,,
+지금,1A,4,13,vocabulary_book,15,지금,confirmed_base_footer,,
+피자,1A,4,13,vocabulary_book,15,피자,confirmed_base_footer,,
+좋아하다,1A,4,13,vocabulary_book,15,좋아하다,confirmed_base_footer,,
+꽃,1A,4,13,vocabulary_book,15,꽃,confirmed_base_footer,,
+고양이,1A,4,13,vocabulary_book,15,고양이,confirmed_base_footer,,
+음악,1A,4,14,vocabulary_book,16,음악,confirmed_base_footer,,
+게임,1A,4,14,vocabulary_book,16,게임,confirmed_base_footer,,
+쇼핑,1A,4,14,vocabulary_book,16,쇼핑,confirmed_base_footer,,
+김치,1A,4,14,vocabulary_book,16,김치,confirmed_base_footer,,
+옷,1A,4,14,vocabulary_book,16,옷,confirmed_base_footer,,
+사다,1A,4,14,vocabulary_book,16,사다,confirmed_base_footer,,
+공원,1A,4,14,vocabulary_book,16,공원,confirmed_base_footer,,
+운동하다,1A,4,14,vocabulary_book,16,운동하다,confirmed_base_footer,,
+장소,1A,5,15,vocabulary_book,17,장소,confirmed_base_footer,,
+식품,1A,5,15,vocabulary_book,17,식품,confirmed_base_footer,,
+회사,1A,5,15,vocabulary_book,17,회사,confirmed_base_ocr_exact,,
+마트,1A,5,15,vocabulary_book,17,마트,confirmed_base_ocr_exact,,
+빵,1A,5,15,vocabulary_book,17,빵,confirmed_base_ocr_exact,,
+라면,1A,5,15,vocabulary_book,17,라면,confirmed_base_ocr_exact,,
+과일,1A,5,15,vocabulary_book,17,과일,confirmed_base_ocr_exact,,
+차,1A,5,15,vocabulary_book,17,차,confirmed_base_ocr_exact,,
+우유,1A,5,15,vocabulary_book,17,우유,confirmed_base_ocr_exact,,
+과자,1A,5,15,vocabulary_book,17,과자,confirmed_base_ocr_exact,,
+아이스크림,1A,5,15,vocabulary_book,17,아이스크림,confirmed_base_visual,,main textbook PDF p.73
+여기,1A,5,15,vocabulary_book,17,여기,confirmed_base_footer,,
+백화점,1A,5,15,vocabulary_book,17,백화점,confirmed_base_footer,,
+구두,1A,5,15,vocabulary_book,17,구두,confirmed_base_footer,,
+누가,1A,5,15,vocabulary_book,17,누가,confirmed_base_footer,,
+사과,1A,5,15,vocabulary_book,17,사과,confirmed_base_footer,,
+포도,1A,5,15,vocabulary_book,17,포도,confirmed_base_footer,,
+케이크,1A,5,15,vocabulary_book,17,케이크,confirmed_base_footer,,
+김밥,1A,5,15,vocabulary_book,17,김밥,confirmed_base_footer,,
+신발,1A,5,15,vocabulary_book,17,신발,confirmed_base_footer,,
+영어,1A,5,15,vocabulary_book,17,영어,confirmed_base_footer,,
+화장품,1A,5,15,vocabulary_book,17,화장품,confirmed_base_footer,,
+고유어,1A,6,16,vocabulary_book,18,고유어,confirmed_base_footer,,
+하나,1A,6,16,vocabulary_book,18,하나/한,confirmed_base_ocr_exact,,
+한,1A,6,16,vocabulary_book,18,하나/한,confirmed_base_ocr_exact,,
+둘,1A,6,16,vocabulary_book,18,둘/두,confirmed_base_visual,,main textbook PDF p.81
+두,1A,6,16,vocabulary_book,18,둘/두,confirmed_base_ocr_exact,,
+셋,1A,6,16,vocabulary_book,18,셋/세,confirmed_base_ocr_exact,,
+세,1A,6,16,vocabulary_book,18,셋/세,confirmed_base_ocr_exact,,
+넷,1A,6,16,vocabulary_book,18,넷/네,confirmed_base_visual,,main textbook PDF p.81
+네,1A,6,16,vocabulary_book,18,넷/네,confirmed_base_ocr_exact,,
+다섯,1A,6,16,vocabulary_book,18,다섯,confirmed_base_ocr_exact,,
+여섯,1A,6,16,vocabulary_book,18,여섯,confirmed_base_ocr_exact,,
+일곱,1A,6,16,vocabulary_book,18,일곱,confirmed_base_ocr_exact,,
+여덟,1A,6,16,vocabulary_book,18,여덟,confirmed_base_visual,,main textbook PDF p.81
+아홉,1A,6,16,vocabulary_book,18,아홉,confirmed_base_visual,,main textbook PDF p.81
+열,1A,6,16,vocabulary_book,18,열,confirmed_base_ocr_exact,,
+열하나,1A,6,16,vocabulary_book,18,열하나/열한,confirmed_base_visual,,main textbook PDF p.81
+열한,1A,6,16,vocabulary_book,18,열하나/열한,confirmed_base_ocr_exact,,
+열둘,1A,6,16,vocabulary_book,18,열둘/열두,confirmed_base_visual,,main textbook PDF p.81
+열두,1A,6,16,vocabulary_book,18,열둘/열두,confirmed_base_ocr_exact,,
+스물,1A,6,16,vocabulary_book,18,스물/스무,confirmed_base_visual,,main textbook PDF p.81
+스무,1A,6,16,vocabulary_book,18,스물/스무,confirmed_base_visual,,main textbook PDF p.81
+서른,1A,6,16,vocabulary_book,18,서른,confirmed_base_visual,,main textbook PDF p.81
+마흔,1A,6,16,vocabulary_book,18,마흔,confirmed_base_visual,,main textbook PDF p.81
+쉰,1A,6,16,vocabulary_book,18,쉰,confirmed_base_visual,,main textbook PDF p.81
+예순,1A,6,16,vocabulary_book,18,예순,confirmed_base_visual,,main textbook PDF p.81
+일흔,1A,6,16,vocabulary_book,18,일흔,confirmed_base_visual,,main textbook PDF p.81
+여든,1A,6,16,vocabulary_book,18,여든,confirmed_base_visual,,main textbook PDF p.81
+아흔,1A,6,16,vocabulary_book,18,아흔,confirmed_base_visual,,main textbook PDF p.81
+백,1A,6,17,vocabulary_book,19,백,confirmed_base_ocr_exact,,
+개,1A,6,17,vocabulary_book,19,개,confirmed_base_footer,,
+공,1A,6,17,vocabulary_book,19,공,confirmed_base_footer,,
+지우개,1A,6,17,vocabulary_book,19,지우개,confirmed_base_footer,,
+계란,1A,6,17,vocabulary_book,19,계란,confirmed_base_footer,,
+명,1A,6,17,vocabulary_book,19,명,confirmed_base_footer,,
+마리,1A,6,17,vocabulary_book,19,마리,confirmed_base_footer,,
+잔,1A,6,17,vocabulary_book,19,잔,confirmed_base_footer,,
+병,1A,6,17,vocabulary_book,19,병,confirmed_base_footer,,
+권,1A,6,17,vocabulary_book,19,권,confirmed_base_footer,,
+장,1A,6,17,vocabulary_book,19,장,confirmed_base_footer,,
+살,1A,6,17,vocabulary_book,19,살,confirmed_base_footer,,
+창문,1A,6,17,vocabulary_book,19,창문,confirmed_base_footer,,
+앉다,1A,6,17,vocabulary_book,19,앉다,confirmed_base_footer,,
+고맙다,1A,6,17,vocabulary_book,19,고맙다,confirmed_base_footer,,
+주다,1A,6,17,vocabulary_book,19,주다,confirmed_base_footer,,
+쓰다,1A,6,17,vocabulary_book,19,쓰다,confirmed_base_footer,,
+대답하다,1A,6,17,vocabulary_book,19,대답하다,confirmed_base_footer,,
+펴다,1A,6,17,vocabulary_book,19,펴다,confirmed_base_footer,,
+내일,1A,6,17,vocabulary_book,19,내일,confirmed_base_footer,,
+일찍,1A,6,18,vocabulary_book,20,일찍,confirmed_base_footer,,
+오다,1A,6,18,vocabulary_book,20,오다,confirmed_base_footer,,
+버스,1A,6,18,vocabulary_book,20,버스,confirmed_base_footer,,
+타다,1A,6,18,vocabulary_book,20,타다,confirmed_base_footer,,
+가게,1A,6,18,vocabulary_book,20,가게,confirmed_base_footer,,
+어서,1A,6,18,vocabulary_book,20,어서,confirmed_base_footer,,
+모두,1A,6,18,vocabulary_book,20,모두,confirmed_base_footer,,
+바나나,1A,6,18,vocabulary_book,20,바나나,confirmed_base_footer,,
+편의점,1A,6,18,vocabulary_book,20,편의점,confirmed_base_footer,,
+치약,1A,6,18,vocabulary_book,20,치약,confirmed_base_footer,,
+칫솔,1A,6,18,vocabulary_book,20,칫솔,confirmed_base_footer,,
+그리고,1A,6,18,vocabulary_book,20,그리고,confirmed_base_footer,,
+날짜,1A,7,19,vocabulary_book,21,날짜,confirmed_base_footer,,
+요일,1A,7,19,vocabulary_book,21,요일,confirmed_base_footer,,
+달력,1A,7,19,vocabulary_book,21,달력,confirmed_base_footer,,
+일월,1A,7,19,vocabulary_book,21,일월,confirmed_base_ocr_exact,,
+이월,1A,7,19,vocabulary_book,21,이월,confirmed_base_visual,,main textbook PDF pp.89-91
+삼월,1A,7,19,vocabulary_book,21,삼월,confirmed_base_ocr_exact,,
+사월,1A,7,19,vocabulary_book,21,사월,confirmed_base_ocr_exact,,
+오월,1A,7,19,vocabulary_book,21,오월,confirmed_base_visual,,main textbook PDF pp.89-91
+유월,1A,7,19,vocabulary_book,21,유월,confirmed_base_ocr_exact,,
+칠월,1A,7,19,vocabulary_book,21,칠월,confirmed_base_ocr_exact,,
+팔월,1A,7,19,vocabulary_book,21,팔월,confirmed_base_visual,,main textbook PDF pp.89-91
+구월,1A,7,19,vocabulary_book,21,구월,confirmed_base_ocr_exact,,
+시월,1A,7,19,vocabulary_book,21,시월,confirmed_base_ocr_exact,,
+십일월,1A,7,19,vocabulary_book,21,십일월,confirmed_base_visual,,main textbook PDF pp.89-91
+십이월,1A,7,19,vocabulary_book,21,십이월,confirmed_base_visual,,main textbook PDF pp.89-91
+일요일,1A,7,19,vocabulary_book,21,일요일,confirmed_base_visual,,main textbook PDF pp.89-91
+월요일,1A,7,19,vocabulary_book,21,월요일,confirmed_base_visual,,main textbook PDF pp.89-91
+화요일,1A,7,19,vocabulary_book,21,화요일,confirmed_base_visual,,main textbook PDF pp.89-91
+수요일,1A,7,19,vocabulary_book,21,수요일,confirmed_base_ocr_exact,,
+목요일,1A,7,19,vocabulary_book,21,목요일,confirmed_base_ocr_exact,,
+금요일,1A,7,19,vocabulary_book,21,금요일,confirmed_base_visual,,main textbook PDF pp.89-91
+토요일,1A,7,20,vocabulary_book,22,토요일,confirmed_base_ocr_exact,,
+일일,1A,7,20,vocabulary_book,22,일일,confirmed_base_visual,,main textbook PDF pp.89-91
+이일,1A,7,20,vocabulary_book,22,이일,confirmed_base_ocr_exact,,
+삼일,1A,7,20,vocabulary_book,22,삼일,confirmed_base_visual,,main textbook PDF pp.89-91
+사일,1A,7,20,vocabulary_book,22,사일,confirmed_base_visual,,main textbook PDF pp.89-91
+오일,1A,7,20,vocabulary_book,22,오일,confirmed_base_visual,,main textbook PDF pp.89-91
+육일,1A,7,20,vocabulary_book,22,육일,confirmed_base_visual,,main textbook PDF pp.89-91
+칠일,1A,7,20,vocabulary_book,22,칠일,confirmed_base_visual,,main textbook PDF pp.89-91
+팔일,1A,7,20,vocabulary_book,22,팔일,confirmed_base_visual,,main textbook PDF pp.89-91
+구일,1A,7,20,vocabulary_book,22,구일,confirmed_base_visual,,main textbook PDF pp.89-91
+십일,1A,7,20,vocabulary_book,22,십일,confirmed_base_ocr_exact,,
+십일일,1A,7,20,vocabulary_book,22,십일일,confirmed_base_visual,,main textbook PDF pp.89-91
+십이일,1A,7,20,vocabulary_book,22,십이일,confirmed_base_visual,,main textbook PDF pp.89-91
+십삼일,1A,7,20,vocabulary_book,22,십삼일,confirmed_base_visual,,main textbook PDF pp.89-91
+십사일,1A,7,20,vocabulary_book,22,십사일,confirmed_base_visual,,main textbook PDF pp.89-91
+십오일,1A,7,20,vocabulary_book,22,십오일,confirmed_base_visual,,main textbook PDF pp.89-91
+십육일,1A,7,20,vocabulary_book,22,십육일,confirmed_base_visual,,main textbook PDF pp.89-91
+십칠일,1A,7,20,vocabulary_book,22,십칠일,confirmed_base_visual,,main textbook PDF pp.89-91
+십팔일,1A,7,20,vocabulary_book,22,십팔일,confirmed_base_visual,,main textbook PDF pp.89-91
+십구일,1A,7,20,vocabulary_book,22,십구일,confirmed_base_visual,,main textbook PDF pp.89-91
+이십일,1A,7,20,vocabulary_book,22,이십일,confirmed_base_visual,,main textbook PDF pp.89-91
+이십일일,1A,7,20,vocabulary_book,22,이십일일,confirmed_base_visual,,main textbook PDF pp.89-91
+이십이일,1A,7,20,vocabulary_book,22,이십이일,confirmed_base_visual,,main textbook PDF pp.89-91
+이십삼일,1A,7,21,vocabulary_book,23,이십삼일,confirmed_base_visual,,main textbook PDF pp.89-91
+이십사일,1A,7,21,vocabulary_book,23,이십사일,confirmed_base_visual,,main textbook PDF pp.89-91
+이십오일,1A,7,21,vocabulary_book,23,이십오일,confirmed_base_visual,,main textbook PDF pp.89-91
+이십육일,1A,7,21,vocabulary_book,23,이십육일,confirmed_base_visual,,main textbook PDF pp.89-91
+이십칠일,1A,7,21,vocabulary_book,23,이십칠일,confirmed_base_visual,,main textbook PDF pp.89-91
+이십팔일,1A,7,21,vocabulary_book,23,이십팔일,confirmed_base_visual,,main textbook PDF pp.89-91
+이십구일,1A,7,21,vocabulary_book,23,이십구일,confirmed_base_visual,,main textbook PDF pp.89-91
+삼십일,1A,7,21,vocabulary_book,23,삼십일,confirmed_base_visual,,main textbook PDF pp.89-91
+삼십일일,1A,7,21,vocabulary_book,23,삼십일일,confirmed_base_visual,,main textbook PDF pp.89-91
+생일,1A,7,21,vocabulary_book,23,생일,confirmed_base_footer,,
+언제,1A,7,21,vocabulary_book,23,언제,confirmed_base_footer,,
+주말,1A,7,21,vocabulary_book,23,주말,confirmed_base_footer,,
+수업,1A,7,21,vocabulary_book,23,수업,confirmed_base_footer,,
+여행,1A,7,21,vocabulary_book,23,여행,confirmed_base_footer,,
+며칠,1A,7,21,vocabulary_book,23,며칠,confirmed_base_footer,,
+사진,1A,7,21,vocabulary_book,23,사진,confirmed_base_footer,,
+찍다,1A,7,21,vocabulary_book,23,찍다,confirmed_base_footer,,
+배우다,1A,7,21,vocabulary_book,23,배우다,confirmed_base_footer,,
+도서관,1A,7,21,vocabulary_book,23,도서관,confirmed_base_footer,,
+아르바이트,1A,7,21,vocabulary_book,23,아르바이트,confirmed_base_footer,,
+수영,1A,7,21,vocabulary_book,23,수영,confirmed_base_footer,,
+점심,1A,7,21,vocabulary_book,23,점심,confirmed_base_ocr_exact,,
+식사,1A,7,21,vocabulary_book,23,식사,confirmed_base_visual,,main textbook PDF pp.89-91
+회의,1A,7,22,vocabulary_book,24,회의,confirmed_base_ocr_exact,,
+저녁,1A,7,22,vocabulary_book,24,저녁,confirmed_base_ocr_exact,,
+오후,1A,7,22,vocabulary_book,24,오후,confirmed_base_ocr_exact,,
+드라마,1A,7,22,vocabulary_book,24,드라마,confirmed_base_ocr_exact,,
+시작하다,1A,7,22,vocabulary_book,24,시작하다,confirmed_base_footer,,
+아침,1A,7,22,vocabulary_book,24,아침,confirmed_base_footer,,
+하루,1A,7,22,vocabulary_book,24,하루,confirmed_base_footer,,
+다니다,1A,7,22,vocabulary_book,24,다니다,confirmed_base_footer,,
+매일,1A,7,22,vocabulary_book,24,매일,confirmed_base_footer,,
+일어나다,1A,7,22,vocabulary_book,24,일어나다,confirmed_base_footer,,
+파티,1A,7,22,vocabulary_book,24,파티,confirmed_base_footer,,
+하고,1A,7,22,vocabulary_book,24,하고,confirmed_base_footer,,
+밥,1A,7,22,vocabulary_book,24,밥,confirmed_base_footer,,
+같이,1A,7,22,vocabulary_book,24,같이,confirmed_base_footer,,
+날씨,1A,8,23,vocabulary_book,25,날씨,confirmed_base_footer,,
+계절,1A,8,23,vocabulary_book,25,계절,confirmed_base_footer,,
+맑다,1A,8,23,vocabulary_book,25,맑다,confirmed_base_visual,,main textbook PDF p.97
+흐리다,1A,8,23,vocabulary_book,25,흐리다,confirmed_base_visual,,main textbook PDF p.97
+바람,1A,8,23,vocabulary_book,25,바람,confirmed_base_ocr_exact,,
+불다,1A,8,23,vocabulary_book,25,불다,confirmed_base_visual,,main textbook PDF p.97
+비,1A,8,23,vocabulary_book,25,비,confirmed_base_ocr_exact,,
+눈,1A,8,23,vocabulary_book,25,눈,confirmed_base_ocr_exact,,
+따뜻하다,1A,8,23,vocabulary_book,25,따뜻하다,confirmed_base_ocr_stem,,
+덥다,1A,8,23,vocabulary_book,25,덥다,confirmed_base_visual,,main textbook PDF p.97
+시원하다,1A,8,23,vocabulary_book,25,시원하다,confirmed_base_ocr_stem,,
+쌀쌀하다,1A,8,23,vocabulary_book,25,쌀쌀하다,confirmed_base_ocr_stem,,
+춥다,1A,8,23,vocabulary_book,25,춥다,confirmed_base_visual,,main textbook PDF p.97
+사계절,1A,8,23,vocabulary_book,25,사계절,confirmed_base_footer,,
+봄,1A,8,23,vocabulary_book,25,봄,confirmed_base_ocr_exact,,
+여름,1A,8,23,vocabulary_book,25,여름,confirmed_base_ocr_exact,,
+가을,1A,8,23,vocabulary_book,25,가을,confirmed_base_ocr_exact,,
+겨울,1A,8,23,vocabulary_book,25,겨울,confirmed_base_ocr_exact,,
+이번,1A,8,23,vocabulary_book,25,이번,confirmed_base_footer,,
+어떻다,1A,8,23,vocabulary_book,25,어떻다,confirmed_base_footer,,
+서울,1A,8,23,vocabulary_book,25,서울,confirmed_base_footer,,
+좋다,1A,8,24,vocabulary_book,26,좋다,confirmed_base_footer,,
+바쁘다,1A,8,24,vocabulary_book,26,바쁘다,confirmed_base_footer,,
+딸기,1A,8,24,vocabulary_book,26,딸기,confirmed_base_footer,,
+좀,1A,8,24,vocabulary_book,26,좀,confirmed_base_footer,,
+무겁다,1A,8,24,vocabulary_book,26,무겁다,confirmed_base_footer,,
+가볍다,1A,8,24,vocabulary_book,26,가볍다,confirmed_base_footer,,
+요즘,1A,8,24,vocabulary_book,26,요즘,confirmed_base_footer,,
+쉽다,1A,8,24,vocabulary_book,26,쉽다,confirmed_base_footer,,
+어렵다,1A,8,24,vocabulary_book,26,어렵다,confirmed_base_footer,,
+그런데,1A,8,24,vocabulary_book,26,그런데,confirmed_base_footer,,
+맵다,1A,8,24,vocabulary_book,26,맵다,confirmed_base_footer,,
+아주,1A,8,24,vocabulary_book,26,아주,confirmed_base_footer,,
+고향,1A,8,24,vocabulary_book,26,고향,confirmed_base_footer,,
+부산,1A,8,24,vocabulary_book,26,부산,confirmed_base_footer,,
+잘,1A,8,24,vocabulary_book,26,잘,confirmed_base_footer,,
+지내다,1A,8,24,vocabulary_book,26,지내다,confirmed_base_footer,,
+자주,1A,8,24,vocabulary_book,26,자주,confirmed_base_footer,,
+거기,1A,8,24,vocabulary_book,26,거기,confirmed_base_footer,,
+많이,1A,8,24,vocabulary_book,26,많이,confirmed_base_footer,,
+도시,1A,8,24,vocabulary_book,26,도시,confirmed_base_footer,,
+하노이,1A,8,24,vocabulary_book,26,하노이,confirmed_base_footer,,
+시드니,1A,8,24,vocabulary_book,26,시드니,confirmed_base_footer,,
+모스크바,1A,8,24,vocabulary_book,26,모스크바,confirmed_base_footer,,
+자카르타,1A,8,25,vocabulary_book,27,자카르타,confirmed_base_footer,,
+제주도,1A,8,25,vocabulary_book,27,제주도,confirmed_base_footer,,
+바다,1A,8,25,vocabulary_book,27,바다,confirmed_base_footer,,
+한라산,1A,8,25,vocabulary_book,27,한라산,confirmed_base_footer,,
+단풍,1A,8,25,vocabulary_book,27,단풍,confirmed_base_footer,,
+예쁘다,1A,8,25,vocabulary_book,27,예쁘다,confirmed_base_footer,,
+그렇지만,1A,8,25,vocabulary_book,27,그렇지만,confirmed_base_footer,,
+아름답다,1A,8,25,vocabulary_book,27,아름답다,confirmed_base_footer,,
+활동,1A,9,26,vocabulary_book,28,활동,confirmed_base_footer,,
+미용실,1A,9,26,vocabulary_book,28,미용실,confirmed_base_ocr_exact,,
+놀이공원,1A,9,26,vocabulary_book,28,놀이공원,confirmed_base_ocr_exact,,
+박물관,1A,9,26,vocabulary_book,28,박물관,confirmed_base_ocr_exact,,
+수영장,1A,9,26,vocabulary_book,28,수영장,confirmed_base_ocr_exact,,
+산책하다,1A,9,26,vocabulary_book,28,산책하다,confirmed_base_ocr_stem,,
+구경하다,1A,9,26,vocabulary_book,28,구경하다,confirmed_base_ocr_exact,,
+자전거,1A,9,26,vocabulary_book,28,자전거,confirmed_base_ocr_exact,,
+청소하다,1A,9,26,vocabulary_book,28,청소하다,confirmed_base_footer,,
+어제,1A,9,26,vocabulary_book,28,어제,confirmed_base_footer,,
+쉬다,1A,9,26,vocabulary_book,28,쉬다,confirmed_base_footer,,
+만들다,1A,9,26,vocabulary_book,28,만들다,confirmed_base_footer,,
+재미있다,1A,9,26,vocabulary_book,28,재미있다,confirmed_base_footer,,
+우리,1A,9,26,vocabulary_book,28,우리,confirmed_base_footer,,
+놀다,1A,9,26,vocabulary_book,28,놀다,confirmed_base_footer,,
+기분,1A,9,26,vocabulary_book,28,기분,confirmed_base_footer,,
+약속,1A,10,27,vocabulary_book,29,약속,confirmed_base_ocr_exact,,
+시간,1A,10,27,vocabulary_book,29,시간,confirmed_base_ocr_exact,,
+특별하다,1A,10,27,vocabulary_book,29,특별하다,confirmed_base_visual,,main textbook PDF p.113
+일,1A,10,27,vocabulary_book,29,일,confirmed_base_ocr_exact,,
+다르다,1A,10,27,vocabulary_book,29,다르다,confirmed_base_visual,,main textbook PDF p.113
+콘서트,1A,10,27,vocabulary_book,29,콘서트,confirmed_base_ocr_exact,,
+축구,1A,10,27,vocabulary_book,29,축구,confirmed_base_visual,,main textbook PDF p.113
+경기,1A,10,27,vocabulary_book,29,경기,confirmed_base_visual,,main textbook PDF p.113
+농구,1A,10,27,vocabulary_book,29,농구,confirmed_base_ocr_exact,,
+음료수,1A,10,27,vocabulary_book,29,음료수,confirmed_base_visual,,main textbook PDF p.113
+등산,1A,10,27,vocabulary_book,29,등산,confirmed_base_ocr_exact,,
+하다,1A,10,27,vocabulary_book,29,하다,confirmed_base_ocr_exact,,
+반,1A,10,27,vocabulary_book,29,반,confirmed_base_footer,,
+한강,1A,10,27,vocabulary_book,29,한강,confirmed_base_footer,,
+음식,1A,10,27,vocabulary_book,29,음식,confirmed_base_footer,,
+운동화,1A,10,27,vocabulary_book,29,운동화,confirmed_base_footer,,
+방학,1A,10,27,vocabulary_book,29,방학,confirmed_base_footer,,
+비빔밥,1A,10,27,vocabulary_book,29,비빔밥,confirmed_base_footer,,
+낚시,1A,10,28,vocabulary_book,30,낚시,confirmed_base_footer,,
+태권도,1A,10,28,vocabulary_book,30,태권도,confirmed_base_footer,,
+다,1A,10,28,vocabulary_book,30,다,confirmed_base_footer,,
+걷다,1A,10,28,vocabulary_book,30,걷다,confirmed_base_footer,,
+쇼핑몰,1A,10,28,vocabulary_book,30,쇼핑몰,confirmed_base_footer,,
+내용,1A,10,28,vocabulary_book,30,내용,confirmed_base_footer,,
+메모,1A,10,28,vocabulary_book,30,메모,confirmed_base_footer,,
+주,1A,10,28,vocabulary_book,30,주,confirmed_base_footer,,
+다음,1A,10,28,vocabulary_book,30,다음,confirmed_base_footer,,
+케이팝,1A,10,28,vocabulary_book,30,케이팝(K-POP),confirmed_base_footer,,
+국적,1A,1,6,extra_activities,8,국적,,confirmed_extra_footer,explicitly marked 새 어휘
+나무,1A,1,7,extra_activities,9,나무,,confirmed_extra_footer,explicitly marked 새 어휘
+신발,1A,1,7,extra_activities,9,신발,,confirmed_extra_footer,explicitly marked 새 어휘
+책상,1A,1,7,extra_activities,9,책상,,confirmed_extra_footer,explicitly marked 새 어휘
+과자,1A,1,7,extra_activities,9,과자,,confirmed_extra_footer,explicitly marked 새 어휘
+우유,1A,1,7,extra_activities,9,우유,,confirmed_extra_footer,explicitly marked 새 어휘
+가방,1A,1,7,extra_activities,9,가방,,confirmed_extra_footer,explicitly marked 새 어휘
+차,1A,1,7,extra_activities,9,차,,confirmed_extra_footer,explicitly marked 새 어휘
+누나,1A,1,7,extra_activities,9,누나,,confirmed_extra_footer,explicitly marked 새 어휘
+어느,1A,1,8,extra_activities,10,어느,,confirmed_extra_footer,explicitly marked 새 어휘
+이,1A,1,9,extra_activities,11,이,,confirmed_extra_footer,explicitly marked 새 어휘
+여자,1A,2,11,extra_activities,13,여자,,confirmed_extra_footer,explicitly marked 새 어휘
+옷,1A,2,11,extra_activities,13,옷,,confirmed_extra_footer,explicitly marked 새 어휘
+은행,1A,2,12,extra_activities,14,은행,,confirmed_extra_footer,explicitly marked 새 어휘
+병원,1A,2,12,extra_activities,14,병원,,confirmed_extra_footer,explicitly marked 새 어휘
+노래,1A,4,19,extra_activities,21,노래,,confirmed_extra_footer,explicitly marked 새 어휘
+밥,1A,4,19,extra_activities,21,밥,,confirmed_extra_footer,explicitly marked 새 어휘
+그림,1A,4,19,extra_activities,21,그림,,confirmed_extra_footer,explicitly marked 새 어휘
+사과,1A,4,19,extra_activities,21,사과,,confirmed_extra_footer,explicitly marked 새 어휘
+바나나,1A,4,19,extra_activities,21,바나나,,confirmed_extra_footer,explicitly marked 새 어휘
+춤,1A,4,19,extra_activities,21,춤,,confirmed_extra_footer,explicitly marked 새 어휘
+초콜릿,1A,6,26,extra_activities,28,초콜릿,,confirmed_extra_footer,explicitly marked 새 어휘
+추다,1A,6,27,extra_activities,29,추다,,confirmed_extra_footer,explicitly marked 새 어휘
+손님,1A,6,28,extra_activities,30,손님,,confirmed_extra_footer,explicitly marked 새 어휘
+층,1A,6,29,extra_activities,31,층,,confirmed_extra_footer,explicitly marked 새 어휘
+기차,1A,7,31,extra_activities,33,기차,,confirmed_extra_footer,explicitly marked 새 어휘
+출발하다,1A,7,31,extra_activities,33,출발하다,,confirmed_extra_footer,explicitly marked 새 어휘
+떡국,1A,7,32,extra_activities,34,떡국,,confirmed_extra_footer,explicitly marked 새 어휘
+여러분,1A,7,32,extra_activities,34,여러분,,confirmed_extra_footer,explicitly marked 새 어휘
+윷놀이,1A,7,32,extra_activities,34,윷놀이,,confirmed_extra_footer,explicitly marked 새 어휘
+고향,1A,7,33,extra_activities,35,고향,,confirmed_extra_footer,explicitly marked 새 어휘
+공항,1A,7,33,extra_activities,35,공항,,confirmed_extra_footer,explicitly marked 새 어휘
+많다,1A,7,33,extra_activities,35,많다,,confirmed_extra_footer,explicitly marked 새 어휘
+도착하다,1A,7,33,extra_activities,35,도착하다,,confirmed_extra_footer,explicitly marked 새 어휘
+메시지,1A,8,35,extra_activities,37,메시지,,confirmed_extra_footer,explicitly marked 새 어휘
+보내다,1A,8,35,extra_activities,37,보내다,,confirmed_extra_footer,explicitly marked 새 어휘
+재미있다,1A,8,35,extra_activities,37,재미있다,,confirmed_extra_footer,explicitly marked 새 어휘
+준비하다,1A,8,36,extra_activities,38,준비하다,,confirmed_extra_footer,explicitly marked 새 어휘
+휴가,1A,9,39,extra_activities,41,휴가,,confirmed_extra_footer,explicitly marked 새 어휘
+옛날,1A,9,40,extra_activities,42,옛날,,confirmed_extra_footer,explicitly marked 새 어휘
+오전,1A,9,41,extra_activities,43,오전,,confirmed_extra_footer,explicitly marked 새 어휘
+빨래,1A,9,41,extra_activities,43,빨래,,confirmed_extra_footer,explicitly marked 새 어휘
+떡볶이,1A,9,41,extra_activities,43,떡볶이,,confirmed_extra_footer,explicitly marked 새 어휘
+잠,1A,10,43,extra_activities,45,잠,,confirmed_extra_footer,explicitly marked 새 어휘
+택시,1A,10,43,extra_activities,45,택시,,confirmed_extra_footer,explicitly marked 새 어휘
+경기,1A,10,44,extra_activities,46,경기,,confirmed_extra_footer,explicitly marked 새 어휘
+경기장,1A,10,44,extra_activities,46,경기장,,confirmed_extra_footer,explicitly marked 새 어휘
+운동장,1A,10,44,extra_activities,46,운동장,,confirmed_extra_footer,explicitly marked 새 어휘
+끝나다,1A,10,45,extra_activities,47,끝나다,,confirmed_extra_footer,explicitly marked 새 어휘
