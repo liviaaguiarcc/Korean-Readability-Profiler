@@ -236,23 +236,69 @@ def print_analysis(text: str) -> None:
     print_topik_coverage_report(topik_report)
     print_sejong_coverage_report(sejong_report)
 
+def read_text_file(file_path: str) -> str:
+    """Read Korean text from a UTF-8 text file."""
+    path = Path(file_path)
+
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Text file not found: {path}"
+        )
+
+    if not path.is_file():
+        raise ValueError(
+            f"The supplied path is not a file: {path}"
+        )
+
+    text = path.read_text(encoding="utf-8").strip()
+
+    if not text:
+        raise ValueError(
+            "The text file is empty."
+        )
+
+    return text
 
 def main() -> None:
     """Run the command-line application."""
     print("Korean Readability Profiler")
     print("============================")
 
-    text = input("\nPaste a Korean text:\n> ").strip()
+    print("\nChoose the input method:")
+    print("1 - Paste one line of Korean text")
+    print("2 - Read a Korean text from a .txt file")
 
-    if not text:
-        print("\nNo text was provided.")
-        return
+    choice = input("\nOption: ").strip()
 
     try:
+        if choice == "1":
+            text = input(
+                "\nPaste a Korean sentence or paragraph:\n> "
+            ).strip()
+
+            if not text:
+                print("\nNo text was provided.")
+                return
+
+        elif choice == "2":
+            file_path = input(
+                "\nEnter the path to the text file:\n> "
+            ).strip()
+
+            if not file_path:
+                print("\nNo file path was provided.")
+                return
+
+            text = read_text_file(file_path)
+
+        else:
+            print("\nInvalid option. Choose 1 or 2.")
+            return
+
         print_analysis(text)
+
     except (ValueError, FileNotFoundError) as error:
         print(f"\nError: {error}")
-
 
 if __name__ == "__main__":
     main()
